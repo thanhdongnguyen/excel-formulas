@@ -1,14 +1,14 @@
 
-const TextFunctions = require('./formulas/handle/text');
-const MathFunctions = require('./formulas/handle/math');
-const TrigFunctions = require('./formulas/handle/trigonometry');
-const LogicalFunctions = require('./formulas/handle/logical');
-const EngFunctions = require('./formulas/handle/engineering');
-const ReferenceFunctions = require('./formulas/handle/reference');
-const InformationFunctions = require('./formulas/handle/information');
-const StatisticalFunctions = require('./formulas/handle/statistical');
-const DateFunctions = require('./formulas/handle/date');
-const WebFunctions = require('./formulas/handle/web');
+const TextFunctions = require('./formulas/functions/text');
+const MathFunctions = require('./formulas/functions/math');
+const TrigFunctions = require('./formulas/functions/trigonometry');
+const LogicalFunctions = require('./formulas/functions/logical');
+const EngFunctions = require('./formulas/functions/engineering');
+const ReferenceFunctions = require('./formulas/functions/reference');
+const InformationFunctions = require('./formulas/functions/information');
+const StatisticalFunctions = require('./formulas/functions/statistical');
+const DateFunctions = require('./formulas/functions/date');
+const WebFunctions = require('./formulas/functions/web');
 const FormulaError = require('./formulas/error');
 const {FormulaHelpers, Address} = require('./formulas/helpers');
 const {Prefix, Postfix, Infix, Operators} = require('./formulas/operators');
@@ -16,7 +16,7 @@ const Collection = require('./grammar/type/collection');
 
 
 
-export const formulas = {
+const formulas = {
     TextFunctions,
     MathFunctions,
     TrigFunctions,
@@ -36,3 +36,5 @@ export const formulas = {
     Operators,
     Collection
 }
+
+module.exports = formulas;
