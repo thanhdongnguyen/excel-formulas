@@ -129,8 +129,15 @@ const StatisticalFunctions = {
 
     },
 
-    MAX: () => {
-
+    MAX: (...numbers) => {
+        let maxNumber = 0;
+        // // parse number only if the input is literal
+        H.flattenParams(numbers, Types.NUMBER, true, (item, info) => {
+            if (typeof item === "number" && item > maxNumber) {
+                maxNumber = item;
+            }
+        });
+        return maxNumber;
     },
 
     MAXA: () => {
@@ -145,8 +152,21 @@ const StatisticalFunctions = {
 
     },
 
-    MIN: () => {
-
+    MIN: (...numbers) => {
+        let minNumber = 0;
+        let index = 0;
+        // // parse number only if the input is literal
+        H.flattenParams(numbers, Types.NUMBER, true, (item, info) => {
+            if (typeof item === "number") {
+                if (index === 0) {
+                    minNumber = item;
+                } else if (minNumber > item) {
+                    minNumber = item;
+                }
+            }
+            index += 1;
+        });
+        return minNumber;
     },
 
     MINA: () => {
